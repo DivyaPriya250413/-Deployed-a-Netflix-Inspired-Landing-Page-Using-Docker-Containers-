@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StreamFlix - Unlimited Movies & TV Shows</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+nav button, .hero button {
+    border: none;
+    padding: 11px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login {
+    background: #e50914;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    background:
+      linear-gradient(to right, #080808 5%, rgba(0,0,0,.65) 55%, transparent),
+      linear-gradient(to top, #080808 2%, transparent 60%),
+      url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1800")
+      center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-top: 70px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 25px;
+}
+
+.hero button {
+    background: #e50914;
+    color: white;
+    font-size: 17px;
+    padding: 15px 28px;
+}
+
+.hero button:hover, .login:hover {
+    background: #b20710;
+}
+
+/* Movie sections */
+.section {
+    padding: 30px 7%;
+}
+
+.section h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.movie {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: .3s;
+    background: #222;
+}
+
+.movie:hover {
+    transform: scale(1.06);
+    z-index: 2;
+}
+
+.movie img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-info {
+    padding: 12px;
+    background: #171717;
+}
+
+.movie-info h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.movie-info span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Membership section */
+.membership {
+    margin: 45px 7%;
+    padding: 55px 25px;
+    text-align: center;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #4b0000, #151515, #390000);
+}
+
+.membership h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.membership p {
+    color: #ddd;
+    margin-bottom: 22px;
+}
+
+.membership button {
+    padding: 14px 28px;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    padding: 40px 7%;
+    text-align: center;
+    color: #888;
+    border-top: 1px solid #333;
+    line-height: 2;
+}
+
+/* Responsive */
+@media(max-width: 900px) {
+    .movies {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    nav {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .hero {
+        height: 75vh;
+        padding: 0 6%;
+        background-position: center;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .movies {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .movie img {
+        height: 200px;
+    }
+
+    .section {
+        padding: 25px 5%;
+    }
+
+    .membership h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">STREAMFLIX</div>
+    <button class="login" onclick="login()">Sign In</button>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="hero-content">
+        <h1>Unlimited Movies. Endless Entertainment.</h1>
+
+        <p>
+            Discover blockbuster movies, award-winning series
+            and exclusive entertainment. Your next favorite
+            story starts here.
+        </p>
+
+        <button onclick="getStarted()">
+            Get Started →
+        </button>
+    </div>
+</header>
+
+<!-- Trending Movies -->
+<section class="section">
+    <h2>🔥 Trending Now</h2>
+
+    <div class="movies">
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500">
+            <div class="movie-info">
+                <h3>Dark Universe</h3>
+                <span>2026 | Sci-Fi</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500">
+            <div class="movie-info">
+                <h3>Lost Kingdom</h3>
+                <span>2026 | Adventure</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=500">
+            <div class="movie-info">
+                <h3>Night Sky</h3>
+                <span>2025 | Drama</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500">
+            <div class="movie-info">
+                <h3>The Last Journey</h3>
+                <span>2026 | Thriller</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500">
+            <div class="movie-info">
+                <h3>Red Horizon</h3>
+                <span>2025 | Action</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Popular Shows -->
+<section class="section">
+    <h2>⭐ Popular TV Shows</h2>
+
+    <div class="movies">
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?w=500">
+            <div class="movie-info">
+                <h3>Beyond Reality</h3>
+                <span>Series | Sci-Fi</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500">
+            <div class="movie-info">
+                <h3>Music Nights</h3>
+                <span>Series | Music</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500">
+            <div class="movie-info">
+                <h3>New Worlds</h3>
+                <span>Series | Fantasy</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=500">
+            <div class="movie-info">
+                <h3>Movie Stories</h3>
+                <span>Series | Drama</span>
+            </div>
+        </div>
+
+        <div class="movie">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=500">
+            <div class="movie-info">
+                <h3>Wild Adventures</h3>
+                <span>Series | Adventure</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Membership -->
+<section class="membership">
+    <h2>Ready to Watch?</h2>
+    <p>Start exploring amazing entertainment today.</p>
+    <button onclick="getStarted()">Join Now →</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Questions? Contact us anytime.</p>
+    <p>About Us | Privacy | Terms | Help Center</p>
+    <p>© 2026 StreamFlix. All Rights Reserved.</p>
+</footer>
+
+<script>
+function login() {
+    alert("Welcome back! Sign-in functionality can be connected here.");
+}
+
+function getStarted() {
+    alert("Welcome to StreamFlix! Registration functionality can be added here.");
+}
+
+document.querySelectorAll(".movie").forEach(movie => {
+    movie.addEventListener("click", () => {
+        const title = movie.querySelector("h3").textContent;
+        alert("You selected: " + title);
+    });
+});
+</script>
+
+</body>
+</html>
